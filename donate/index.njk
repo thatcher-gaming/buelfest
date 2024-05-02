@@ -1,0 +1,34 @@
+---
+layout: base.njk
+---
+
+{% block head %}
+<link rel="stylesheet" href="/assets/donate.css">
+{% endblock %}
+
+<main>
+    {# ignore this #}
+    <h1 aria-label="donate">
+        <span>d</span><span>o</span><span>n</span><span>a</span><span>t</span><span>e</span>
+    </h1>
+
+    <h2>gofundmes</h2>
+    
+    <div>
+        <ul class="fundraisers">
+            {% for item in gofundmes %}
+            <li>
+                <img src="{{item.image.webp[0].url}}" alt="">
+                <div>
+                    <h3>
+                        {{item.title}}
+                    </h3>
+                    <span class="raised">
+                        <big>${{item.current}}</big> raised outta ${{item.goal}}
+                    </span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</main>

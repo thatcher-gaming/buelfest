@@ -1,0 +1,10 @@
+:root {
+    --font: 'Commissioner', sans-serif;
+
+    font-family: var(--font);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}

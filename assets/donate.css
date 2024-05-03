@@ -71,7 +71,9 @@ ul.fundraisers {
     position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr));
-    gap: .5rem;
+    gap: 4px;
+    border-radius: 8px;
+    overflow: hidden;
 
     list-style: none;
     padding: 0;
@@ -88,7 +90,6 @@ ul.fundraisers {
         background-color: color-mix(in srgb, var(--fg), var(--bg) var(--mix-factor));
 
         outline: 1px solid var(--border-colour);
-        border-radius: 4px;
         overflow: hidden;
 
         display: flex;

@@ -14,3 +14,6 @@ charities:
       Providing medical care and humanitarian aid to children in 
       palestine
     url: https://www.pcrf.net/
+  - name: UNRWA
+    description:
+      Provides support and relief to Palestinian refugees

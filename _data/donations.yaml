@@ -1,18 +1,73 @@
 gofundmes:
-  - https://www.gofundme.com/f/autism-support-service-dog-training
-  - https://www.gofundme.com/f/help-beckett-get-a-service-dog
-  - https://www.gofundme.com/f/autism-service-dog-for-dash
-  - https://www.gofundme.com/f/autism-service-dog-for-cassia
-  - https://www.gofundme.com/f/8xk9se-judes-autism-service-dog
-  - https://www.gofundme.com/f/help-emma-get-a-psychiatric-service-dog
-  - https://www.gofundme.com/f/sam-get-his-service-dog
-  - https://www.gofundme.com/f/f7hcqd-help-mason-get-a-service-dog
-  - https://www.gofundme.com/f/autism-service-dog-for-safety-and-independence
+  - url: https://www.gofundme.com/f/autism-support-service-dog-training
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/help-beckett-get-a-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/autism-service-dog-for-dash
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/autism-service-dog-for-cassia
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/8xk9se-judes-autism-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/help-emma-get-a-psychiatric-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/sam-get-his-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/f7hcqd-help-mason-get-a-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/autism-service-dog-for-safety-and-independence
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/help-secure-dellas-autism-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/a-lifechanging-cause-an-autism-service-dog-for-rachel
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/please-help-save-yon-an-autism-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/simons-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/autism-service-dog-training-for-winnie
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/help-cleo-get-an-autism-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/help-ashley-get-an-autism-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/empowering-jack-bring-juno-home
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/hudsons-asd-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/help-lalita-to-get-an-assistance-service-animal
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/bens-service-animal-start-up-costs
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/dog-for-voni
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/pipers-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/masons-new-best-friend
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/antonios-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/kikis-autism-service-dog-training
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/autism-service-dog-for-devin
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/leo-and-paul-get-an-autism-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/88xhsj-donate-to-help-fund-an-autism-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/daphne-get-an-autism-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/4p8bgv-a-service-dog-for-lexi
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/help-us-obtain-a-pediatric-autism-service-dog
+    tags: [service dogs]
+  - url: https://www.gofundme.com/f/3txgn62k
+    tags: [service dogs]
 charities:
   - name: PCRF
     description:
-      Providing medical care and humanitarian aid to children in 
-      palestine
+      Providing medical care and humanitarian aid to children in
+      Palestine
     url: https://www.pcrf.net/
   - name: UNRWA
     description:

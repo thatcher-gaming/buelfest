@@ -111,7 +111,7 @@ layout: base.njk
 
     <div>
         <ul class="fundraisers">
-            {% for item in (gofundmes | sort(true, false, 'numbers.difference')) %}
+            {% for item in (gofundme | sort(true, false, 'numbers.difference')) %}
             <li>
                 <a href="{{item.url}}" target="_blank" rel="noopener noreferrer">
                     {{item.image_markup | safe}}
@@ -119,11 +119,16 @@ layout: base.njk
                         <h3>
                             {{item.title}}
                         </h3>
+                        <ul class="tags">
+                            {% for tag in item.tags %}
+                                <li>{{ tag }}</li>
+                            {% endfor %}
+                        </ul>
                         <span class="raised">
-                            <big>${{item.formatted.current}}</big>
+                            <big>{{item.formatted.current}}</big>
                             raised outta
                             <b style="color: var(--fg);">
-                                ${{item.formatted.goal}}
+                                {{item.formatted.goal}}
                             </b>
                         </span>
                     </div>

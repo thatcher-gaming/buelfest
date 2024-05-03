@@ -6,8 +6,9 @@ const cheerio = require("cheerio");
 async function scrape_gofundme(data) {
     const parsed = []
 
-    for (const url of data) {
-        parsed.push(await grab_data(url));
+    for (const thing of data) {
+        if (Object.keys(thing).length == 0) continue;
+        parsed.push(await grab_data(thing));
     }
 
     return parsed;
@@ -15,7 +16,7 @@ async function scrape_gofundme(data) {
 
 const max_age = "1h"
 
-async function grab_data(url) {
+async function grab_data({ url, ...bonus }) {
     const data = await eleventy_fetch(url, {
         duration: max_age,
         type: "text",
@@ -59,19 +60,27 @@ async function grab_data(url) {
         .text()
         .replace(",", "")
         .split(" ")
-        .find(x => x.startsWith("$"))
-        .slice(1);
+        .find(x => x.match(/^(\$|£|€)/)) ?? "$0";
+
+    const sym = goal_str[0];
+    const currency = (() => {
+        switch (sym) {
+            case "$": return "usd";
+            case "€": return "eur";
+            case "£": return "gbp";
+        }
+    })();
 
     // make them numbers
     const numbers = {
         current: Number(current_str),
-        goal: Number(goal_str),
-        difference: Number(goal_str) - Number(current_str),
+        goal: Number(goal_str.slice(1)),
+        difference: Number(goal_str.slice(1)) - Number(current_str),
     }
 
     const formatted = {
-        current: numbers.current.toLocaleString(undefined, {currency: "usd"}),
-        goal: numbers.goal.toLocaleString(undefined, {currency: "usd"})
+        current: sym + numbers.current.toLocaleString(undefined, { currency }),
+        goal: sym + numbers.goal.toLocaleString(undefined, { currency })
     }
 
     const result = {
@@ -81,7 +90,8 @@ async function grab_data(url) {
         image,
         image_markup,
         numbers,
-        formatted
+        formatted,
+        tags: bonus.tags,
     };
 
     // cache the result
@@ -92,7 +102,7 @@ async function grab_data(url) {
 
 module.exports = {
     eleventyComputed: {
-        gofundmes: (data) => {
+        gofundme: (data) => {
             const gofundmes = data.donations.gofundmes;
             return scrape_gofundme(gofundmes);
         }

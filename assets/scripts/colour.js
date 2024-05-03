@@ -20,6 +20,8 @@ const luminance = (rgb) => {
     return r * 0.2126 + g * 0.7152 + b * 0.0722;
 }
 
+const target_ratio = 8;
+
 const find_nice_combo = () => {
     while (true) {
         const [a, b] = Array(null, null).map(_ => random_rgb());
@@ -31,11 +33,12 @@ const find_nice_combo = () => {
 
         const ratio = (brightest + 0.05) / (darkest + 0.05);
 
-        if (ratio >= 7) return [a, b].map(x => "#" + rgb_to_hex(x))
+        if (ratio >= target_ratio) return [a, b].map(x => "#" + rgb_to_hex(x))
     }
 }
 
-const [a, b] = find_nice_combo();
+const [bg, fg] = find_nice_combo();
+
 const root = document.querySelector(':root');
-root.style.setProperty("--bg", a);
-root.style.setProperty("--fg", b);
+root.style.setProperty("--bg", bg);
+root.style.setProperty("--fg", fg);

@@ -13,7 +13,7 @@ async function scrape_gofundme(data) {
     return parsed;
 }
 
-const max_age = "1d"
+const max_age = "1h"
 
 async function grab_data(url) {
     const data = await eleventy_fetch(url, {

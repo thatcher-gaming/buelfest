@@ -1,19 +1,16 @@
 gofundmes:
-  - name: Fin
-    url: https://www.gofundme.com/f/autism-support-service-dog-training
-  - name: Beckett
-    url: https://www.gofundme.com/f/help-beckett-get-a-service-dog
-  - name: Dash
-    url: https://www.gofundme.com/f/autism-service-dog-for-dash
-  - name: Cassia
-    url: https://www.gofundme.com/f/autism-service-dog-for-cassia
-  - name: Jude
-    url: https://www.gofundme.com/f/8xk9se-judes-autism-service-dog
-  - name: Emma
-    url: https://www.gofundme.com/f/help-emma-get-a-psychiatric-service-dog
-  - name: Sam
-    url: https://www.gofundme.com/f/sam-get-his-service-dog
-  - name: Mason
-    url: https://www.gofundme.com/f/f7hcqd-help-mason-get-a-service-dog
-  - name: Olivia
-    url: https://www.gofundme.com/f/autism-service-dog-for-safety-and-independence
+  - https://www.gofundme.com/f/autism-support-service-dog-training
+  - https://www.gofundme.com/f/help-beckett-get-a-service-dog
+  - https://www.gofundme.com/f/autism-service-dog-for-dash
+  - https://www.gofundme.com/f/autism-service-dog-for-cassia
+  - https://www.gofundme.com/f/8xk9se-judes-autism-service-dog
+  - https://www.gofundme.com/f/help-emma-get-a-psychiatric-service-dog
+  - https://www.gofundme.com/f/sam-get-his-service-dog
+  - https://www.gofundme.com/f/f7hcqd-help-mason-get-a-service-dog
+  - https://www.gofundme.com/f/autism-service-dog-for-safety-and-independence
+charities:
+  - name: PCRF
+    description:
+      Providing medical care and humanitarian aid to children in 
+      palestine
+    url: https://www.pcrf.net/

@@ -1,5 +1,5 @@
 :root {
-    --bg: yellow;
+    --bg: white;
     --fg: black;
 }
 
@@ -57,7 +57,7 @@ h2.big {
 
     justify-self: end;
     
-    font-size: clamp(4rem, 10vw, 8rem);
+    font-size: clamp(3.5rem, 10vw, 10rem);
     line-height: 1;
     text-transform: uppercase;
     font-weight: 900;
@@ -135,6 +135,11 @@ ul.fundraisers {
             font-size: 2rem;
             color: var(--fg);
             font-variation-settings: 'FLAR' 100, 'VOLM' 100;
+        }
+
+        p {
+            margin-top: .25rem;
+            margin-bottom: 0;
         }
     }
 }

@@ -86,7 +86,7 @@ layout: base.njk
             </p>
 
             <ul>
-                <li>a link to the gofundme you donated to</li>
+                <li>a link to the gofundme/charity you donated to</li>
                 <li>the amount donated</li>
                 <li>an image of the donation receipt</li>
                 <li>
@@ -111,7 +111,7 @@ layout: base.njk
 
     <div>
         <ul class="fundraisers">
-            {% for item in gofundmes %}
+            {% for item in (gofundmes | sort(false, false, 'to_go')) %}
             <li>
                 <a href="{{item.url}}" target="_blank" rel="noopener noreferrer">
                     {{item.image_markup | safe}}
@@ -130,4 +130,20 @@ layout: base.njk
             {% endfor %}
         </ul>
     </div>
+
+    <h2 class="big">Charities</h2>
+    <ul class="fundraisers">
+        {% for item in donations.charities %}
+        <li>
+            <a href="{{item.url}}" target="_blank" rel="noopener noreferrer">
+                {{item.image_markup | safe}}
+                <div>
+                    <h3>{{item.name}}</h3>
+                    <p>{{item.description}}</p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+
 </main>

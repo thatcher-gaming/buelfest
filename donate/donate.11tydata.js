@@ -6,7 +6,7 @@ const cheerio = require("cheerio");
 async function scrape_gofundme(data) {
     const parsed = []
 
-    for (const { url } of data) {
+    for (const url of data) {
         parsed.push(await grab_data(url));
     }
 
@@ -62,9 +62,11 @@ async function grab_data(url) {
         .find(x => x.startsWith("$"))
         .slice(1);
 
-    // make them numbers (idk why)
+    // make them numbers
     const current = Number(current_str);
     const goal = Number(goal_str);
+
+    const to_go = goal - current;
 
     const result = {
         title,
@@ -74,6 +76,7 @@ async function grab_data(url) {
         current,
         image_markup,
         goal,
+        to_go,
     };
 
     // cache the result

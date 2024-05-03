@@ -20,10 +20,24 @@ jobs:
             uses: actions/setup-node@v3
             with:
                 node-version: "18"
+
+          - name: Persist npm cache
+            uses: actions/cache@v3
+            with:
+                path: ~/.npm
+                key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+
+          - name: Persist Eleventy .cache
+            uses: actions/cache@v3
+            with:
+                path: ./.cache
+                key: ${{ runner.os }}-eleventy-fetch-cache
+
           - name: Install Dependencies
             run: npm install
           - name: Build
             run: npx @11ty/eleventy
+            
           - name: Upload artifact
             uses: actions/upload-pages-artifact@v2
     deploy:

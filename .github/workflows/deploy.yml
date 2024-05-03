@@ -38,7 +38,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Build
-        run: npx @11ty/eleventy
+        run: npx @11ty/eleventy --pathprefix="/buelfest"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2

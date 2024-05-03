@@ -3,6 +3,7 @@ const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("assets");
+    eleventyConfig.addPassthroughCopy("favicon.ico");
     
     eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 

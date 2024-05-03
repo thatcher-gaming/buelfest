@@ -68,7 +68,8 @@ charities:
     description:
       Providing medical care and humanitarian aid to children in
       Palestine
-    url: https://www.pcrf.net/
+    url: https://pcrf1.app.neoncrm.com/forms/gaza-recovery
   - name: UNRWA
+    url: https://donate.unrwa.org/
     description:
       Provides support and relief to Palestinian refugees

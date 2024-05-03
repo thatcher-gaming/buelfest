@@ -3,9 +3,23 @@
     --fg: black;
 }
 
+::selection {
+    background-color: var(--fg);
+    color: var(--bg);
+}
+
 body {
     background-color: var(--bg);
     color: var(--fg);
+}
+
+p {
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    font-weight: 500;
 }
 
 main {
@@ -31,12 +45,12 @@ h1 {
     grid-row: 1 / span 2;
     
     margin: 0;
-    margin-bottom: .25em;
+    margin-bottom: .05em;
 
     user-select: none;
 }
 
-h2 {
+h2.big {
     margin: 0;
     margin-bottom: -0.5em;
     width: min-content;
@@ -56,7 +70,7 @@ h2 {
 ul.fundraisers {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr));
     gap: .5rem;
 
     list-style: none;
@@ -64,11 +78,15 @@ ul.fundraisers {
     margin: 0;
     z-index: 100s;
     
-    li {
-        --border-colour: #000000;
-        background-color: white;
-        color: black;
-        
+    li > a {
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+        font-weight: 400;
+
+        --mix-factor: 90%;
+        background-color: color-mix(in srgb, var(--fg), var(--bg) var(--mix-factor));
+
         outline: 1px solid var(--border-colour);
         border-radius: 4px;
         overflow: hidden;
@@ -84,9 +102,15 @@ ul.fundraisers {
 
         img {
             width: 100%;
+            height: min-content;
             aspect-ratio: 16 / 9;
             object-fit: cover;
             border-bottom: 1px solid var(--border-colour);
+            margin: 0;
+        }
+
+        &:hover {
+            --mix-factor: 80%;
         }
 
         div {
@@ -100,7 +124,7 @@ ul.fundraisers {
 
         .raised {
             display: block;
-            color: rgb(60, 60, 60);
+            color: color-mix(in srgb, var(--fg), var(--bg) 10%);
             margin-top: auto;
             padding-top: .5rem;
             justify-self: flex-end;
@@ -109,8 +133,84 @@ ul.fundraisers {
         big {
             font-weight: 700;
             font-size: 2rem;
-            color: black;
+            color: var(--fg);
             font-variation-settings: 'FLAR' 100, 'VOLM' 100;
         }
+    }
+}
+
+.dono-info {
+    margin: 2rem 1rem;
+
+    display: grid;
+    gap: 1.5rem;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fit, 22rem);
+}
+
+ol.table {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1px;
+    overflow: hidden;
+
+    li {
+        grid-column: 1 / span 2;
+        display: grid;
+        grid-template-columns: subgrid;
+        gap: .75rem;
+        padding: .5rem 0;
+        align-items: baseline;
+
+        outline: 1px solid color-mix(in srgb, var(--fg), var(--bg) 60%);
+
+        .limited {
+            display: block;
+            background-color: var(--fg);
+            color: var(--bg);
+            width: max-content;
+            padding: 0.1rem .25rem;
+            margin-bottom: .25rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: .85rem;
+        }
+
+        .price {
+            min-width: max-content;
+            justify-self: end;
+            font-weight: 700;
+            font-variation-settings: 'FLAR' 100, 'VOLM' 100;
+            font-size: 1.25rem;
+
+            color: color-mix(in srgb, var(--fg), var(--bg) 25%);
+
+            small {
+                font-size: .9rem;
+                font-weight: 500;
+                font-variation-settings: 'slnt' -10;
+            }
+        }
+    }
+}
+
+button {
+    --mix-factor: 75%;
+    display: block;
+    background-color: color-mix(in srgb, var(--fg), var(--bg) var(--mix-factor));
+    border: none;
+    font: inherit;
+    color: var(--fg);
+    border-radius: 6px;
+    padding: .5rem .75rem;
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover {
+        --mix-factor: 60%;
     }
 }

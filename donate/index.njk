@@ -3,8 +3,8 @@ layout: base.njk
 ---
 
 {% block head %}
-<link rel="stylesheet" href="/assets/donate.css">
-<script type="module" src="/assets/scripts/colour.js"></script>
+<link rel="stylesheet" href="../assets/donate.css">
+<script type="module" src="../assets/scripts/colour.js"></script>
 {% endblock %}
 
 <main>
@@ -13,21 +13,119 @@ layout: base.njk
         donations
     </h1>
 
-    <h2>gofundmes</h2>
-    
+    <h2 class="big">info</h2>
+    <section class="dono-info">
+        <div>
+            <h3>rewards</h3>
+            <p>
+                depending on how much cash you fork over, the following things
+                might happen:
+            </p>
+            <ol class="table">
+                <li>
+                    <span class="price">$??</span>
+                    <span>
+                        <span class="limited">buelfest only!</span>
+                        any amount will earn you a raffle ticket for the day.
+                    </span>
+                </li>
+                <li>
+                    <span class="price">$5 <small>(or more)</small></span>
+                    your name gets read out at the end of the stream
+                </li>
+                <li>
+                    <span class="price">$7</span>
+                    bueller gets a hug and told it's from you.
+                </li>
+                <li>
+                    <span class="price">$10</span>
+                    bueller gets a little treat.
+                </li>
+                <li>
+                    <span class="price">$15</span>
+                    bueller will be asked kindly to do a little dance.
+                </li>
+                <li>
+                    <span class="price">$20 <small>(or more)</small></span>
+                    you can provide a message to be read out between sets.
+                </li>
+                <li>
+                    <span class="price">$????</span>
+                    <span>
+                        <span class="limited">buelfest only!</span>
+                        if you are in the top 3 donators by the end of the week, 
+                        you'll be eligible to receive a free item of merch by 
+                        your own design (or a buelfest staff shirt).
+                    </span>
+                </li>
+            </ol>
+        </div>
+        <div>
+            <h3>raffle</h3>
+            <p>here's how it works:</p>
+            <ul>
+                <li>
+                    the weekdays all count for one big raffle at the end of the 
+                    afterparty
+                </li>
+                <li>
+                    the weekends are each their own raffle, meaning it is only 
+                    possible to get one ticket for these.
+                </li>
+                <li>prizes will be announced when winners are drawn</li>
+                <li>the big raffle will have 3 winners</li>
+                <li>the weekend raffles will each have one</li>
+            </ul>
+        </div>
+        <div>
+            <h3>getting counted</h3>
+            <p>
+                after you've donated, shoot an email to
+                <a href="mailto:donations@guywith.dog">donations@guywith.dog</a>
+                with the following info:
+            </p>
+
+            <ul>
+                <li>a link to the gofundme you donated to</li>
+                <li>the amount donated</li>
+                <li>an image of the donation receipt</li>
+                <li>
+                    the name for the donation to be under (or, if you'd like to 
+                    be anonymous, tell us that)
+                </li>
+                <li>
+                    if the donation is $20 or over, the message to say between 
+                    sets (about the length of a tweet)
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h3>having trouble picking?</h3>
+            <p>click the button and have a random fundraiser sicced upon you</p>
+            <noscript><i>you need javascript enabled by the way</i></noscript>
+            <button style="margin: auto;">get randy</button>
+        </div>
+    </section>
+
+    <h2 class="big">gofundmes</h2>
+
     <div>
         <ul class="fundraisers">
             {% for item in gofundmes %}
             <li>
-                <img src="{{item.image.webp[0].url}}" alt="">
-                <div>
-                    <h3>
-                        {{item.title}}
-                    </h3>
-                    <span class="raised">
-                        <big>${{item.current}}</big> raised outta ${{item.goal}}
-                    </span>
-                </div>
+                <a href="{{item.url}}" target="_blank" rel="noopener noreferrer">
+                    {{item.image_markup | safe}}
+                    <div>
+                        <h3>
+                            {{item.title}}
+                        </h3>
+                        <span class="raised">
+                            <big>${{item.current}}</big>
+                            raised outta
+                            <b style="color: var(--fg);">${{item.goal}}</b>
+                        </span>
+                    </div>
+                </a>
             </li>
             {% endfor %}
         </ul>

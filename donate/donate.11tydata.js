@@ -39,7 +39,14 @@ async function grab_data(url) {
 
     const image_url = $(".p-campaign picture img").prop("src");
     const image = await image_fetch(image_url, {
-        outputDir: "_site/img/"
+        outputDir: "_site/img/",
+        formats: ['avif', 'webp', 'jpg'],
+    });
+
+    const image_markup = image_fetch.generateHTML(image, {
+        alt: `header image for ${title}`,
+        loading: "lazy",
+        decoding: "async",
     });
 
     const sidebar = $(".p-campaign-sidebar");
@@ -65,6 +72,7 @@ async function grab_data(url) {
         url,
         image,
         current,
+        image_markup,
         goal,
     };
 

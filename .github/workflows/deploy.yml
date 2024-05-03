@@ -1,56 +1,58 @@
 name: deploy site
 
 on:
-    push:
-        branches: ["main"]
-    pull_request:
+  push:
+    branches: ["main"]
+  pull_request:
+  schedule:
+    - cron: "0 * * * *" # runs every hour
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        concurrency:
-            group: ${{ github.workflow }}-${{ github.ref }}
-        steps:
-          - name: Checkout
-            uses: actions/checkout@v4
-          - name: Setup Pages
-            id: pages
-            uses: actions/configure-pages@v3
-          - name: Setup Node
-            uses: actions/setup-node@v3
-            with:
-                node-version: "18"
+  build:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
 
-          - name: Persist npm cache
-            uses: actions/cache@v3
-            with:
-                path: ~/.npm
-                key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+      - name: Persist npm cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
 
-          - name: Persist Eleventy .cache
-            uses: actions/cache@v3
-            with:
-                path: ./.cache
-                key: ${{ runner.os }}-eleventy-fetch-cache
+      - name: Persist Eleventy .cache
+        uses: actions/cache@v3
+        with:
+          path: ./.cache
+          key: ${{ runner.os }}-eleventy-fetch-cache
 
-          - name: Install Dependencies
-            run: npm install
-          - name: Build
-            run: npx @11ty/eleventy
-            
-          - name: Upload artifact
-            uses: actions/upload-pages-artifact@v2
-    deploy:
-        runs-on: ubuntu-latest
-        environment:
-            name: github-pages
-            url: ${{steps.deployment.outputs.page_url}}
-        permissions:
-            contents: read
-            pages: write
-            id-token: write
-        needs: build
-        steps:
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v2
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npx @11ty/eleventy
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2

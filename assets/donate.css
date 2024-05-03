@@ -1,10 +1,16 @@
+:root {
+    --bg: yellow;
+    --fg: black;
+}
+
 body {
-    background-color: magenta;
+    background-color: var(--bg);
+    color: var(--fg);
 }
 
 main {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    /* grid-template-columns: 1fr 3fr; */
 
     gap: 2rem;
     min-height: 100vh;
@@ -12,13 +18,9 @@ main {
 }
 
 h1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(2, .9em);
-
-    font-size: 16rem;
-    font-weight: 200;
-    text-align: center;
+    font-size: clamp(4rem, 16vw, 16rem);
+    justify-self: center;
+    font-weight: 100;
     text-transform: uppercase;
     letter-spacing: -0.025em;
     word-break: break-all;
@@ -29,6 +31,7 @@ h1 {
     grid-row: 1 / span 2;
     
     margin: 0;
+    margin-bottom: .25em;
 
     user-select: none;
 }
@@ -40,14 +43,11 @@ h2 {
 
     justify-self: end;
     
-    font-size: 6rem;
+    font-size: clamp(4rem, 10vw, 8rem);
     line-height: 1;
     text-transform: uppercase;
     font-weight: 900;
     font-variation-settings: 'FLAR' 100, 'VOLM' 100;
-
-    color: rgb(84, 83, 83);
-    mix-blend-mode: luminosity;
 
     z-index: 0;
     user-select: none;
@@ -63,10 +63,12 @@ ul.fundraisers {
     padding: 0;
     margin: 0;
     z-index: 100s;
-
+    
     li {
         --border-colour: #000000;
         background-color: white;
+        color: black;
+        
         outline: 1px solid var(--border-colour);
         border-radius: 4px;
         overflow: hidden;

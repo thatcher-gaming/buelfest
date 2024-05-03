@@ -63,20 +63,25 @@ async function grab_data(url) {
         .slice(1);
 
     // make them numbers
-    const current = Number(current_str);
-    const goal = Number(goal_str);
+    const numbers = {
+        current: Number(current_str),
+        goal: Number(goal_str),
+        difference: Number(goal_str) - Number(current_str),
+    }
 
-    const to_go = goal - current;
+    const formatted = {
+        current: numbers.current.toLocaleString(undefined, {currency: "usd"}),
+        goal: numbers.goal.toLocaleString(undefined, {currency: "usd"})
+    }
 
     const result = {
         title,
         desc,
         url,
         image,
-        current,
         image_markup,
-        goal,
-        to_go,
+        numbers,
+        formatted
     };
 
     // cache the result

@@ -1,10 +1,93 @@
 :root {
     --font: 'Commissioner', sans-serif;
+    --bg: white;
+    --fg: black;
 
     font-family: var(--font);
+}
+
+::selection {
+    background-color: var(--fg);
+    color: var(--bg);
 }
 
 body, html {
     margin: 0;
     padding: 0;
+}
+
+a {
+    color: inherit;
+    font-weight: 500;
+}
+
+p {
+    line-height: 1.7;
+}
+
+header.site {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 900px;
+    margin: 2.5rem auto;
+    margin-top: 2rem;
+
+    padding: 0 2rem;
+
+    a {
+        text-decoration: none;
+    }
+
+    i {
+        font-size: 1rem;
+        font-weight: 700;
+        font-variation-settings: 'FLAR' 100, 'VOLM' 100;
+    }
+
+    a:hover {
+        color: var(--bg);
+        background-color: var(--fg);
+    }
+
+    nav {
+        display: flex;
+        gap: 1px;
+        outline: 1px solid var(--fg);
+
+        a {
+            padding: .25rem;
+            outline: 1px solid var(--fg);
+            text-transform: uppercase;
+            font-weight: 400;
+            line-height: 1;
+            font-size: .9rem;
+
+            &:hover {
+                font-weight: 450;
+            }
+        }
+    }
+}
+
+h1.big {
+    font-size: clamp(4rem, 16vw, 16rem);
+    justify-self: center;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+    font-variation-settings: 'FLAR' 100, 'VOLM' 100;
+    line-height: .8;
+
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    
+    margin: 0;
+    margin-bottom: .05em;
+
+    user-select: none;
 }

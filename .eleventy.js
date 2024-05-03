@@ -8,4 +8,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
     eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
+
+    eleventyConfig.addGlobalData("layout", "base.njk")
 }

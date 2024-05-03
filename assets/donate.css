@@ -1,25 +1,6 @@
-:root {
-    --bg: white;
-    --fg: black;
-}
-
-::selection {
-    background-color: var(--fg);
-    color: var(--bg);
-}
-
 body {
     background-color: var(--bg);
     color: var(--fg);
-}
-
-p {
-    line-height: 1.7;
-}
-
-a {
-    color: inherit;
-    font-weight: 500;
 }
 
 main {
@@ -31,7 +12,7 @@ main {
     margin: 1rem;
 }
 
-h1 {
+h1.big {
     font-size: clamp(4rem, 16vw, 16rem);
     justify-self: center;
     font-weight: 100;

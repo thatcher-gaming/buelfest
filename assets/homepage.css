@@ -2,12 +2,13 @@ h1.nice {
     display: grid;
     grid-template-columns: repeat(1fr, 2);
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     margin: 0;
     padding: 0;
 
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    top: 0;
+    z-index: 0;
 
     /* todo: check accessibility */
     pointer-events: none;
@@ -39,8 +40,5 @@ h1.nice {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: var(--bg);
-    z-index: 0;
-
-    mix-blend-mode: luminosity;
+    z-index: 1;
 }

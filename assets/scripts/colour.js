@@ -47,6 +47,10 @@ const reloaded = () => {
 
 const key = "colours";
 
+export const get_colours = () => {
+    return JSON.parse(sessionStorage.getItem(key));
+}
+
 // persist the colour scheme until the page is reloaded
 const session = sessionStorage.getItem(key);
 const [bg, fg] = session && !reloaded()

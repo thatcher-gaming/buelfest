@@ -1,10 +1,13 @@
 <header class="site">
+    {% if page.url != "/" %}
     <a href="/"><i>buelfest</i></a>
-
+    {% else %}
+    <span></span>
+    {% endif %}
     <nav>
         {# <a href="/about/">about</a> #}
         {# <a href="/sets/">sets</a> #}
-        <a href="https://discord.gg/qvjUBnEAZX">chat</a>
+        <a href="https://discord.gg/qvjUBnEAZX">discord</a>
         <a href="https://twitch.tv/guywith_dog">twitch</a>
         <a href="/donate/">go donate!!</a>
     </nav>

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="{{ eleventy.generator }}">
     <title>{{ title + " — " if title }} buelfest</title>
     {# todo: self host #}
     <script type="importmap">
@@ -14,8 +15,6 @@
             }
         }
     </script>    
-
-    {% block head %}{% endblock %}
 
     {# gooble fonts #}
     {# todo: self host. maybe we don't need all the axes #}
@@ -29,6 +28,8 @@
     <link rel="stylesheet" href="/assets/main.css">
 
     <script type="module" src="/assets/scripts/colour.js"></script>
+
+    {% block head %}{% endblock %}
 </head>
 
 <body>

@@ -65,6 +65,8 @@ function resizeRendererToDisplaySize(renderer) {
     return needResize;
 }
 
+let reduced_motion = window.matchMedia("(prefers-reduced-motion)");
+
 function animate() {
     requestAnimationFrame(animate);
     if (resizeRendererToDisplaySize(renderer)) {
@@ -74,7 +76,7 @@ function animate() {
     }
     renderer.setClearColor("#ffffff", 0);
     composer.render(scene, camera);
-    if (model) {
+    if (model && !reduced_motion.matches) {
         model.scene.rotation.y += 0.01;
     }
 }

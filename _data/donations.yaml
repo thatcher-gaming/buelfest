@@ -63,6 +63,23 @@ gofundmes:
     tags: [service dogs]
   - url: https://www.gofundme.com/f/3txgn62k
     tags: [service dogs]
+  - url: https://www.gofundme.com/f/help-palestinan-medical-student-his-family-evacut
+    tags: [palestine]
+  - url: https://www.gofundme.com/f/aiutaci-a-sostenere-la-famiglia-di-mohammad
+    tags: [palestine]
+  - url: https://www.gofundme.com/f/help-my-family-and-i-escape-massacres-and-invasion
+    tags: [palestine]
+  - url: https://www.gofundme.com/f/qv6tf-my-family
+    tags: [palestine]
+  - url: https://www.gofundme.com/f/help-me-save-my-family-and-evacuate-from-rafah
+    tags: [palestine]
+  - url: https://www.gofundme.com/f/pre-200-families-in-gaza
+    tags: [palestine]
+  - url: https://www.gofundme.com/f/cancer-medical-evacuation-brother-needs-treatment
+    tags: [palestine]
+  - url: https://www.gofundme.com/f/help-nosibas-family-find-safety-a-new-beginnig
+    tags: [palestine]
+
 charities:
   - name: PCRF
     description:

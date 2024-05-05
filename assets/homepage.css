@@ -88,6 +88,7 @@ section.details {
     .date {
         font-weight: 700;
     }
+
 }
 
 .dog {
@@ -98,4 +99,45 @@ section.details {
     height: var(--dog-height);
     z-index: 1;
     pointer-events: none;
+}
+
+ul.links {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-transform: uppercase;
+
+    a {
+        text-decoration: none;
+        width: max-content;
+
+        &::after {
+            content: ' →';
+        }
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--bg), transparent 80%);
+        }
+
+        &:active {
+            background-color: var(--bg);
+            color: var(--fg);
+        }
+
+        &:focus-visible {
+            background-color: var(--bg);
+            color: var(--fg);
+            outline: 2px solid var(--bg);
+            outline-offset: 2px;
+        }
+    }
+}
+
+section.text {
+    margin: 1rem 0;
 }

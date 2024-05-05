@@ -80,6 +80,7 @@ function animate() {
     composer.render(scene, camera);
     if (model && !reduced_motion.matches) {
         model.scene.rotation.y += 0.01;
+        model.scene.rotation.x -= 0.0001;
     }
 }
 animate();

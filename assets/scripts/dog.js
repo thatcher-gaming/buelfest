@@ -65,6 +65,7 @@ function resizeRendererToDisplaySize(renderer) {
 }
 
 renderer.domElement.ariaHidden = true;
+renderer.domElement.style.pointerEvents = "none";
 
 let reduced_motion = window.matchMedia("(prefers-reduced-motion)");
 

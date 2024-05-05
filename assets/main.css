@@ -133,7 +133,7 @@ h1.big {
     background-color: var(--fg);
     color: var(--bg);
 
-    &::selection {
+    ::selection {
         background-color: var(--bg);
         color: var(--fg)
     }

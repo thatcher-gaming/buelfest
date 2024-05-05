@@ -1,5 +1,10 @@
+:root {
+    --dog-height: 75svh;
+}
+
 header {
-    position: fixed !important; /* don't worry about this */
+    position: fixed !important;
+    /* don't worry about this */
     top: 0;
     right: 0;
 
@@ -11,7 +16,7 @@ section.nice {
     position: relative;
     grid-template-columns: repeat(1fr, 2);
     width: 100%;
-    height: 100vh;
+    height: var(--dog-height);
 
     position: relative;
 
@@ -38,7 +43,7 @@ section.nice {
         grid-column: 1;
         margin-left: -1vw;
     }
-    
+
     .fest {
         grid-column: 2;
         grid-row: 2;
@@ -58,16 +63,11 @@ section.nice {
         align-self: end;
         display: flex;
         flex-direction: column;
-        
+
         text-transform: uppercase;
         font-size: clamp(2rem, 3.5vw, 4rem);
         text-wrap: balance;
         font-weight: 300;
-    }
-
-    a {
-        font-weight: inherit;
-        text-decoration: none;
     }
 
     .date {
@@ -76,9 +76,29 @@ section.nice {
 }
 
 section.more {
-    display: flex;
-    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 24rem);
+    justify-content: space-evenly;
+
     padding: 0 1rem;
+}
+
+section.details {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    font-weight: 200;
+    padding: 2rem;
+
+    a {
+        font-weight: inherit;
+        text-decoration: none;
+    }
+
+    .date {
+        font-weight: 700;
+    }
 }
 
 .dog {
@@ -86,6 +106,6 @@ section.more {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
-    z-index: 0;
+    height: var(--dog-height);
+    z-index: 1;
 }

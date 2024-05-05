@@ -21,6 +21,7 @@ h1.big {
     grid-row: 1 / span 2;
     
     margin: 0;
+    margin-top: max(4rem, .35em);
     margin-bottom: .05em;
 
     user-select: none;

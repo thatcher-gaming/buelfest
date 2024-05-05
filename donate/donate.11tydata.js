@@ -14,7 +14,7 @@ async function scrape_gofundme(data) {
     return parsed;
 }
 
-const max_age = "1h"
+const max_age = "1h";
 
 async function grab_data({ url, ...bonus }) {
     const data = await eleventy_fetch(url, {
@@ -53,6 +53,7 @@ async function grab_data({ url, ...bonus }) {
     const sidebar = $(".p-campaign-sidebar");
     // nightmare
     const meter = sidebar.find("div[class^=progress-meter_progressMeterHeading]")
+    console.log(meter.contents().first().text());
     // remove formatting from number
     const current_str = meter.children().first().text().replace(",", "").slice(1);
     // same deal as above

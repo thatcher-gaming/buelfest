@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title + " — " if title }} buelfest</title>
+    {# todo: self host #}
+    <script type="importmap">
+        {
+            "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+            }
+        }
+    </script>    
+
+    {% block head %}{% endblock %}
 
     {# gooble fonts #}
     {# todo: self host. maybe we don't need all the axes #}
@@ -17,7 +28,7 @@
     <meta property="og:site_name" content="BUELFEST" />
     <link rel="stylesheet" href="/assets/main.css">
 
-    {% block head %}{% endblock %}
+    <script type="module" src="/assets/scripts/colour.js"></script>
 </head>
 
 <body>

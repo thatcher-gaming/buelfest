@@ -1,0 +1,46 @@
+h1.nice {
+    display: grid;
+    grid-template-columns: repeat(1fr, 2);
+    width: 100%;
+    height: 80vh;
+    margin: 0;
+    padding: 0;
+
+    position: relative;
+    z-index: 1;
+
+    /* todo: check accessibility */
+    pointer-events: none;
+    user-select: none;
+
+    span {
+        font-size: min(22vw, 40vh);
+        font-weight: 100;
+        text-transform: uppercase;
+        letter-spacing: -0.05em;
+        line-height: 0.8;
+    }
+
+    .buel {
+        grid-column: 1;
+    }
+    
+    .fest {
+        grid-column: 2;
+        grid-row: 2;
+        text-align: right;
+        align-self: end;
+    }
+}
+
+.dog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg);
+    z-index: 0;
+
+    mix-blend-mode: luminosity;
+}

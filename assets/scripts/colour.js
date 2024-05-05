@@ -37,7 +37,23 @@ const find_nice_combo = () => {
     }
 }
 
-const [bg, fg] = find_nice_combo();
+// check if the last navigation was the result of a reload or clicking on a 
+// hyperlink.
+const reloaded = () => {
+    const entry = window.performance.getEntriesByType("navigation")?.[0];
+    if (!entry) return false;
+    return entry.type == "reload"
+}
+
+const key = "colours";
+
+// persist the colour scheme until the page is reloaded
+const session = sessionStorage.getItem(key);
+const [bg, fg] = session && !reloaded()
+    ? JSON.parse(session)
+    : find_nice_combo();
+
+sessionStorage.setItem(key, JSON.stringify([bg, fg]));
 
 const root = document.querySelector(':root');
 root.style.setProperty("--bg", bg);

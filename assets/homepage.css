@@ -79,7 +79,7 @@ section.details {
     display: flex;
     flex-direction: column;
     font-size: 2rem;
-    font-weight: 200;
+    font-weight: 300;
     padding: 2rem;
 
     a {

@@ -90,7 +90,7 @@ header.site {
             outline: 1px solid var(--fg);
             background-color: var(--bg);
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 450;
             line-height: 1;
             font-size: .9rem;
 

@@ -2,16 +2,7 @@
     --dog-height: 75svh;
 }
 
-header {
-    position: fixed !important;
-    /* don't worry about this */
-    top: 0;
-    right: 0;
-
-    font-size: 2rem;
-}
-
-section.nice {
+h1.nice {
     display: grid;
     position: relative;
     grid-template-columns: repeat(1fr, 2);

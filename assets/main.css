@@ -22,6 +22,13 @@ body, html {
 a {
     color: inherit;
     font-weight: 500;
+
+    &:focus-visible {
+        background-color: var(--fg);
+        color: var(--bg);
+        outline: 2px solid var(--fg);
+        outline-offset: 2px;
+    }
 }
 
 p {
@@ -29,31 +36,48 @@ p {
 }
 
 header.site {
-    position: relative;
+    position: fixed;
+    top: 0;
+    right: 2rem;
+
     z-index: 2;
 
     display: flex;
     justify-content: space-between;
 
-    max-width: 900px;
+    width: calc(100% - 4rem);
     margin: 2.5rem auto;
     margin-top: 2rem;
-
-    padding: 0 2rem;
 
     a {
         text-decoration: none;
     }
 
-    i {
-        font-size: 1rem;
-        font-weight: 700;
-        font-variation-settings: 'FLAR' 100, 'VOLM' 100;
+    .home {
+        display: flex;
+        align-items: center;
+        
+        background-color: var(--bg);
+        outline: 1px solid var(--fg);
+        line-height: 1;
+        padding: .1rem .25rem;
+        letter-spacing: .5px;
+        font-size: .9rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        /* font-variation-settings: 'FLAR' 100, 'VOLM' 100; */
     }
 
     a:hover {
         color: var(--bg);
         background-color: var(--fg);
+    }
+
+    a:focus-visible {
+        outline: 2px solid var(--fg);
+        outline-offset: 2px;
+        background-color: var(--fg);
+        color: var(--bg);
     }
 
     nav {
@@ -66,13 +90,22 @@ header.site {
             outline: 1px solid var(--fg);
             background-color: var(--bg);
             text-transform: uppercase;
-            font-weight: 400;
+            font-weight: 500;
             line-height: 1;
             font-size: .9rem;
 
             &:hover {
-                font-weight: 450;
+                font-weight: 550;
             }
+        }
+    }
+
+    @media screen and (max-width: 36rem) {
+        padding: 0;
+        justify-content: center;
+
+        nav {
+            flex-wrap: wrap;
         }
     }
 }
@@ -103,5 +136,12 @@ h1.big {
     &::selection {
         background-color: var(--bg);
         color: var(--fg)
+    }
+
+    a:focus-visible {
+        background-color: var(--bg);
+        color: var(--fg);
+
+        outline-color: var(--bg);
     }
 }

@@ -1,5 +1,4 @@
 import * as Three from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
@@ -64,6 +63,8 @@ function resizeRendererToDisplaySize(renderer) {
     }
     return needResize;
 }
+
+renderer.domElement.ariaHidden = true;
 
 let reduced_motion = window.matchMedia("(prefers-reduced-motion)");
 

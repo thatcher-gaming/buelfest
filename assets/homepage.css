@@ -145,3 +145,55 @@ ul.links {
 section.text {
     margin: 1rem 0;
 }
+
+.sponsors {
+    background-color: color-mix(in srgb, var(--fg), var(--bg) 90%);
+    padding: 2rem;
+
+    h3 {
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 1rem;
+        line-height: 1;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, 18rem);
+        justify-content: space-evenly;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 18rem;
+        gap: .25rem;
+        padding: .5rem;
+        text-align: center;
+        line-height: 1.6;
+        font-size: .9rem;
+        border-radius: 4px;
+        border: dashed 1px var(--fg);
+        b {
+            font-size: 1rem;
+        }
+    }
+}
+
+.sponsor {
+    display: block;
+    height: 8rem;
+    width: 100%;
+
+    background-color: var(--fg);
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+}

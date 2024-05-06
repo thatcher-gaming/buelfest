@@ -2,6 +2,9 @@ main {
     display: grid;
     /* grid-template-columns: 1fr 3fr; */
 
+    max-width: unset;
+    width: unset;
+    padding: unset;
     gap: 2rem;
     min-height: 100vh;
     margin: 1rem;

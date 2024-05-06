@@ -7,7 +7,6 @@ main {
     padding: unset;
     gap: 2rem;
     min-height: 100vh;
-    margin: 1rem;
 }
 
 h1.big {
@@ -31,8 +30,8 @@ h1.big {
 }
 
 h2.big {
-    margin: 0;
-    margin-bottom: -0.5em;
+    margin: 0 1rem;
+    margin-bottom: -0.6em;
     width: min-content;
 
     justify-self: end;
@@ -57,9 +56,8 @@ ul.fundraisers {
 
     list-style: none;
     padding: 0;
-    margin: 0;
-    z-index: 100s;
-    
+    margin: 1rem;
+
     li > a {
         height: 100%;
         text-decoration: none;
@@ -126,7 +124,8 @@ ul.fundraisers {
 }
 
 .dono-info {
-    margin: 2rem 1rem;
+    margin: 1rem 0;
+    padding: 2rem 0;
 
     display: grid;
     gap: 1.5rem;
@@ -173,7 +172,7 @@ ol.table {
             font-variation-settings: 'FLAR' 100, 'VOLM' 100;
             font-size: 1.25rem;
 
-            color: color-mix(in srgb, var(--fg), var(--bg) 25%);
+            color: color-mix(in srgb, var(--fg), var(--bg) 90%);
 
             small {
                 font-size: .9rem;
@@ -185,12 +184,12 @@ ol.table {
 }
 
 button {
-    --mix-factor: 75%;
+    --mix-factor: 25%;
     display: block;
     background-color: color-mix(in srgb, var(--fg), var(--bg) var(--mix-factor));
     border: none;
     font: inherit;
-    color: var(--fg);
+    color: var(--bg);
     border-radius: 6px;
     padding: .5rem .75rem;
     line-height: 1;

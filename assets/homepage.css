@@ -6,6 +6,7 @@ h1.nice {
     display: grid;
     position: relative;
     grid-template-columns: repeat(1fr, 2);
+    grid-template-rows: min-content 1fr min-content;
     width: 100%;
     height: var(--dog-height);
 
@@ -35,7 +36,7 @@ h1.nice {
 
     .fest {
         grid-column: 2;
-        grid-row: 2;
+        grid-row: 3;
         text-align: right;
         align-self: end;
     }
@@ -68,6 +69,9 @@ section.more {
     display: grid;
     grid-template-columns: repeat(auto-fit, 24rem);
     justify-content: space-evenly;
+
+    position: relative;
+    z-index: 4;
 
     padding: 0 1rem;
 }

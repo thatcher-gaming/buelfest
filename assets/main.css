@@ -93,10 +93,6 @@ header.site {
             font-weight: 450;
             line-height: 1;
             font-size: .9rem;
-
-            &:hover {
-                font-weight: 550;
-            }
         }
     }
 

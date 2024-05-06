@@ -10,4 +10,14 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
 
     eleventyConfig.addGlobalData("layout", "base.njk")
+
+    eleventyConfig.addGlobalData("eleventyComputed.permalink", function () {
+		return (data) => {
+			if (data.draft && process.env.NODE_ENV != "development") {
+				return false;
+			}
+
+			return data.permalink;
+		};
+	});
 }

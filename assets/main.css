@@ -83,7 +83,6 @@ header.site {
     nav {
         display: flex;
         gap: 1px;
-        outline: 1px solid var(--fg);
 
         a {
             padding: .25rem;

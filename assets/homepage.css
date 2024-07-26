@@ -67,7 +67,7 @@ h1.nice {
 
 section.more {
     display: grid;
-    grid-template-columns: repeat(auto-fit, min(24rem, 100vw));
+    grid-template-columns: repeat(auto-fit, min(24rem, 90vw));
     gap: 1rem;
     justify-content: space-evenly;
 
@@ -166,7 +166,7 @@ section.text {
 
         display: grid;
         gap: 2rem;
-        grid-template-columns: repeat(auto-fit, 18rem);
+        grid-template-columns: repeat(auto-fill, min(18rem, 100vw));
         justify-content: space-evenly;
     }
 

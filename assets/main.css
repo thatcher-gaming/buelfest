@@ -151,7 +151,7 @@ h1.big {
 footer {
     display: grid;
     width: 100vw;
-    grid-template-columns: repeat(auto-fill, min(24rem, 100vw));
+    grid-template-columns: repeat(auto-fill, min(24rem, 90vw));
     justify-content: space-evenly;
     gap: 1rem;
     padding: 2rem 0;

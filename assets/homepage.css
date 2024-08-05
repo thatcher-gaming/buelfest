@@ -166,7 +166,7 @@ section.text {
 
         display: grid;
         gap: 2rem;
-        grid-template-columns: repeat(auto-fill, min(18rem, 100vw));
+        grid-template-columns: repeat(auto-fill, min(18rem, 90vw));
         justify-content: space-evenly;
     }
 

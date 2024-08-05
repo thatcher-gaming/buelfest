@@ -103,9 +103,9 @@ async function grab_data({ url, ...bonus }) {
 
 module.exports = {
     eleventyComputed: {
-        gofundme: (data) => {
-            const gofundmes = data.donations.gofundmes;
-            return scrape_gofundme(gofundmes);
-        }
+        // gofundme: (data) => {
+        //     const gofundmes = data.donations.gofundmes;
+        //     return scrape_gofundme(gofundmes);
+        // }
     },
 }

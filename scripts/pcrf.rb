@@ -1,4 +1,3 @@
-require "net/imap"
 require 'dotenv/load'
 require 'mail'
 
@@ -22,19 +21,24 @@ def darn(message)
   
 end
 
-def confirm(message, amount)
-  mail = message.reply do
+# reply confirming the amount donated and message
+def confirm(mail, amount, message)
+  reply = mail.reply do
     body <<~MSG
-      you seem to have donated #{amount}. many thanks!!
+      you seem to have donated #{amount}#{" with the message #{message}" if message}. many thanks!!
     MSG
   end
-  puts mail
-  mail.deliver!
+  puts reply
+  reply.deliver!
 end
 
 AmountRegex = /Amount paid\s+(?'amount'\p{Sc}\d+\.\d+)/i
 
+count = 0
+
 Mail.find_and_delete do |message|
+  count += 1
+
   body = if message.multipart?
     part = message.parts.find { |p| p.content_type.start_with? "text/plain" }
     part.body if part
@@ -48,6 +52,10 @@ Mail.find_and_delete do |message|
   end
 
   encoded = body.to_s.force_encoding('utf-8')
+
+  first_line = encoded.lines[0].strip
+  dono_message = first_line unless first_line.empty?
+
   match = AmountRegex.match(encoded)
 
   if match['amount'].nil?
@@ -55,5 +63,7 @@ Mail.find_and_delete do |message|
     next
   end
 
-  confirm(message, match['amount'])
+  confirm(message, match['amount'], dono_message)
 end
+
+puts "replied to #{count} #{count == 1 ? "message" : "messages"} 🫡"

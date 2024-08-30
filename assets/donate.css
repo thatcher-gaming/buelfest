@@ -1,12 +1,17 @@
 main {
     display: grid;
-    /* grid-template-columns: 1fr 3fr; */
-
+    grid-template-rows: 0 1fr 0 1fr;
+    grid-auto-rows: max-content;
     max-width: unset;
     width: unset;
-    padding: unset;
+    padding: 0;
+    padding-top: 4rem;
     gap: 2rem;
     min-height: 100vh;
+    
+    --inner-margin: clamp(.5rem, 2vw, 2rem);
+
+    background: linear-gradient(to bottom, var(--bg), color-mix(in srgb, var(--fg), var(--bg) 75%));
 }
 
 h1.big {
@@ -18,13 +23,16 @@ h1.big {
     word-break: break-all;
     font-variation-settings: 'FLAR' 100, 'VOLM' 100;
     line-height: .8;
+    height: min-content;
 
     grid-column: 1;
-    grid-row: 1 / span 2;
-    
+    grid-row: 1;
+
     margin: 0;
-    margin-top: max(4rem, .35em);
-    margin-bottom: .05em;
+    margin-top: max(3rem, .25em);
+    margin-bottom: -0.75em;
+
+    color: color-mix(in srgb, var(--fg), var(--bg) 90%);
 
     user-select: none;
 }
@@ -35,7 +43,7 @@ h2.big {
     width: min-content;
 
     justify-self: end;
-    
+
     font-size: clamp(3.5rem, 10vw, 10rem);
     line-height: 1;
     text-transform: uppercase;
@@ -44,6 +52,34 @@ h2.big {
 
     z-index: 0;
     user-select: none;
+}
+
+
+.sep {
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 var(--inner-margin);
+
+    &::after, &::before {
+        display: block;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: var(--fg);
+    }
+}
+
+section.option {
+    margin: 0 var(--inner-margin);
+
+    h2 {
+        margin-top: 0;
+        font-size: 2.5rem;
+        font-weight: 900;
+        font-variant-alternates: 'FLAR' 100;
+    }
 }
 
 ul.fundraisers {

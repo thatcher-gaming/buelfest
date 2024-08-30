@@ -9,17 +9,27 @@ draft: true
 <meta property="og:title" content="donations" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_GB" />
-<meta property="og:description" 
-  content="exchange money for goods and services (the good is helping people and the service is getting your name read out on a livestream)" />
+<meta property="og:description"
+    content="exchange money for goods and services (the good is helping people and the service is getting your name read out on a livestream)" />
 {% endblock %}
 
 <main>
-    <h1 class="big">
+    <h1 class="big transparent">
         donations
     </h1>
 
-    {# <h2 class="big">info</h2> #}
-    <section class="dono-info inverted">
+    <section class="option">
+        <h2>give money to lio</h2>
+    </section>
+    <div class="sep">
+        and
+    </div>
+    <section class="option">
+        <h2>donate to the pcrf</h2>
+        <div class="raised"><span class="number">£100</span> raised</div>
+    </section>
+
+    {# <section class="dono-info inverted">
         <div>
             <h3>rewards</h3>
             <p>
@@ -110,52 +120,7 @@ draft: true
             <noscript><i>you need javascript enabled by the way</i></noscript>
             <button style="margin: auto;">get randy</button>
         </div>
-    </section>
+    </section> #}
 
-    <h2 class="big">gofundmes</h2>
-
-    <div>
-        <ul class="fundraisers">
-            {% for item in (gofundme | sort(true, false, 'numbers.difference')) %}
-            <li>
-                <a href="{{item.url}}" target="_blank" rel="noopener noreferrer">
-                    {{item.image_markup | safe}}
-                    <div>
-                        <h3>
-                            {{item.title}}
-                        </h3>
-                        <ul class="tags">
-                            {% for tag in item.tags %}
-                                <li>{{ tag }}</li>
-                            {% endfor %}
-                        </ul>
-                        <span class="raised">
-                            <big>{{item.formatted.current}}</big>
-                            raised outta
-                            <b style="color: var(--fg);">
-                                {{item.formatted.goal}}
-                            </b>
-                        </span>
-                    </div>
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <h2 class="big">Charities</h2>
-    <ul class="fundraisers">
-        {% for item in donations.charities %}
-        <li>
-            <a href="{{item.url}}" target="_blank" rel="noopener noreferrer">
-                {{item.image_markup | safe}}
-                <div>
-                    <h3>{{item.name}}</h3>
-                    <p>{{item.description}}</p>
-                </div>
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
 
 </main>

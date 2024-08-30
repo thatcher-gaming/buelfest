@@ -67,3 +67,20 @@ Mail.find_and_delete do |message|
 end
 
 puts "replied to #{count} #{count == 1 ? "message" : "messages"} 🫡"
+
+# send a message to the person letting them know we couldn't parse their message
+def darn(message)
+  
+end
+
+# reply confirming the amount donated and message
+def confirm(mail, amount, message)
+  puts "confirming #{mail.from[0]} (amount #{amount}, message: #{message.inspect})"
+
+  reply = mail.reply do
+    body <<~MSG
+      you seem to have donated #{amount}#{" with the message #{message}" if message}. many thanks!!
+    MSG
+  end
+  reply.deliver!
+end

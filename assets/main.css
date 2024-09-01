@@ -44,7 +44,7 @@ header.site {
     top: 0;
     right: 2rem;
 
-    z-index: 2;
+    z-index: 5;
 
     display: flex;
     justify-content: space-between;
@@ -148,10 +148,15 @@ h1.big {
     }
 }
 
+.toned {
+    background-color: color-mix(in srgb, var(--fg), var(--bg) 90%);
+
+}
+
 footer {
     display: grid;
     width: 100vw;
-    grid-template-columns: repeat(auto-fill, min(24rem, 90vw));
+    grid-template-columns: repeat(auto-fit, min(24rem, 90vw));
     justify-content: space-evenly;
     gap: 1rem;
     padding: 2rem 0;
@@ -189,4 +194,8 @@ main {
 pre {
     width: 100%;
     overflow-x: auto;
+}
+
+.hidden {
+    display: none;
 }

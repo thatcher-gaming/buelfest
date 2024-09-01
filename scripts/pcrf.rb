@@ -1,5 +1,8 @@
 require 'dotenv/load'
 require 'mail'
+require 'pg'
+
+db = PG.connect ENV["PG_URI"]
 
 Mail.defaults do
   retriever_method :imap, 
@@ -83,4 +86,11 @@ def confirm(mail, amount, message)
     MSG
   end
   reply.deliver!
+end
+
+def store_amount(mail, amount, message)
+  conn.exec_params <<~SQL, [mail.from, amount.to_s, 'pcrf', message, mail.to_s]
+    INSERT INTO donations (name, amount, cause, message, raw)
+    VALUES ($1, $2, $3, $4, $5)
+  SQL
 end

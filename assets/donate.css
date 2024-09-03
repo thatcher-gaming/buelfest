@@ -75,9 +75,9 @@ h2.big {
 
 section.option {
     display: grid;
-    gap: 1rem;
+    gap: 0 1rem;
     padding: 2rem var(--inner-margin);
-    grid-template-columns: auto auto;
+    grid-template-columns: auto repeat(3, 1fr);
     align-items: baseline;
 
     &:first-of-type {
@@ -85,7 +85,8 @@ section.option {
     }
 
     h2 {
-        margin-top: 0;
+        margin: 0;
+        margin-bottom: .25rem;
         font-size: 2.5rem;
         font-weight: 900;
         font-variation-settings: 'FLAR' 100;
@@ -93,15 +94,26 @@ section.option {
         text-wrap: balance;
     }
 
+    p.explainer {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+
+        max-width: 24rem;
+        margin-top: 0;
+        margin-bottom: 2.5rem;
+    }
+
     .raised {
         font-weight: 500;
         justify-self: end;
         font-size: 1.25rem;
         line-height: 1;
-        grid-column: 2;
+        grid-column: 3 / -1;
+        grid-row: 2 / span 2;
+        align-self: last baseline;
         .number {
             font-variation-settings: 'FLAR' 100;
-            font-size: max(2rem, 28vmin);
+            font-size: max(2rem, 17.5vw);
             font-weight: 900;
             font-variant-numeric: tabular-nums;
         }
@@ -119,6 +131,7 @@ section.option {
         border-bottom-width: 8px;
         width: max-content;
         line-height: 1;
+        justify-self: end;
 
         &:hover {
             background-color: color-mix(in srgb, currentColor, var(--bg) 80%);
@@ -129,6 +142,66 @@ section.option {
         }
     }
 
+    .get-counted {
+        grid-column: 2;
+        grid-row: 3;
+        align-self: end;
+        justify-self: start;
+
+        max-width: 22rem;
+
+        .inverted & {
+            background-color: var(--bg);
+            color: var(--fg);
+        }
+
+        background-color: var(--fg);
+        color: var(--bg);
+        padding: 1rem;
+
+        h3 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        p {
+            font-size: .9rem;
+            margin-top: .25rem;
+            margin-bottom: 0;
+        }
+    }
+
+    @media screen and (max-width: 72rem) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        * {
+            text-align: center;
+            grid-column: 1 !important;
+            justify-self: center !important;
+        }
+
+        h2 {
+            margin-bottom: 0;
+        }
+
+        .raised {
+            grid-row: 3;
+        }
+
+        .get-counted {
+            grid-row: 5;
+            margin-bottom: 2rem;
+        }
+        
+        p.explainer {
+            margin: 0;
+        }
+
+        a.big {
+            font-size: clamp(2rem, 12vw, 4rem);
+        }
+    }
 }
 
 .dono-info {

@@ -98,7 +98,7 @@ section.option {
         grid-column: 1 / span 2;
         grid-row: 2;
 
-        max-width: 24rem;
+        max-width: 32rem;
         margin-top: 0;
         margin-bottom: 2.5rem;
     }
@@ -145,7 +145,7 @@ section.option {
     .get-counted {
         grid-column: 2;
         grid-row: 3;
-        align-self: end;
+        align-self: start   ;
         justify-self: start;
 
         max-width: 22rem;

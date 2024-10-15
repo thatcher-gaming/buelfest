@@ -19,7 +19,7 @@ draft: true
     </h1>
 
     <section class="option">
-        <h2>help lio train his cool dog</h2>
+        <h2>help lio train his cool service dog</h2>
         <p class="explainer">
             Lorem ipsum dolor sit amet consectetur adipisicing
             elit. Maiores, cumque quia reiciendis perferendis cum ducimus
@@ -27,7 +27,7 @@ draft: true
             dolorem id sapiente nisi quia?
         </p>
         <a href="/" class="big">go →</a>
-        <div class="raised"><span class="number">£200</span> raised</div>
+        <div class="raised"><span class="number" id="lio">${{donations.lio.display}}</span> raised</div>
         <div class="get-counted" class="inverted" style="rotate: -2deg;">
             <h3>Get Counted!</h3>
             <p>
@@ -47,8 +47,8 @@ draft: true
             inventore in ullam nemo, quibusdam neque exercitationem nihil.
             Placeat assumenda expedita fuga tenetur minima.
         </p>
-        <a href="/" class="big">go →</a>
-        <div class="raised"><span class="number">£150</span> raised</div>
+        <a href="https://pcrf1.app.neoncrm.com/forms/general" class="big">go →</a>
+        <div class="raised"><span class="number" id="pcrf">${{donations.pcrf.display}}</span> raised</div>
         <div class="get-counted" style="rotate: 2.5deg;">
             <h3>Get Counted!</h3>
             <p>
@@ -56,6 +56,11 @@ draft: true
                 <a href="mailto:pcrf@guywith.dog">pcrf@guywith.dog</a>.
                 if applicable, include your donation message in the subject
                 line.
+            </p>
+            <p>
+                <strong>important!</strong> we'll use the name that's on your
+                receipt, so make sure you set it to something you're comfortable
+                with being shown on the stream (they'll let you put whatever in).
             </p>
         </div>
     </section>
@@ -137,6 +142,23 @@ draft: true
                 holler if you tnink something's gone wrong</p>
         </div>
     </section>
-
-
 </main>
+
+<script type="module">
+    const cool_url = "https://leah.pronounmail.com/buelfest/donations.php";
+    async function update() {
+
+        const res = await fetch(cool_url);
+        if (!res.ok) {
+            return;
+        }
+        const json = await res.json();
+
+        for (const id of ['lio', 'pcrf']) {
+            const elem = document.getElementById(id);
+            elem.innerText = "$" + json[id].display;
+        }
+    }
+
+    update()
+</script>

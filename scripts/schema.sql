@@ -1,10 +1,10 @@
-CREATE TYPE CAUSE AS ENUM ('pcrf', 'lio');
+CREATE TYPE cause AS ENUM ('pcrf', 'lio');
 
 CREATE TABLE IF NOT EXISTS donation (
     id SERIAL PRIMARY KEY,
     email VARCHAR NOT NULL,
     amount NUMERIC NOT NULL,
-    cause CAUSE NOT NULL,
+    cause cause NOT NULL,
     message VARCHAR,
     done BOOL NOT NULL DEFAULT FALSE,
     created TIMESTAMP DEFAULT CURRENT_TIMESTAMP

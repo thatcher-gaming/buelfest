@@ -1,6 +1,5 @@
 ---
 title: "donations"
-draft: true
 ---
 
 {% block head %}
@@ -10,7 +9,7 @@ draft: true
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_GB" />
 <meta property="og:description"
-      content="exchange money for goods and services (the good is helping people and the service is getting your name read out on a livestream)" />
+    content="exchange money for goods and services (the good is helping people and the service is getting your name read out on a livestream)" />
 {% endblock %}
 
 <main>
@@ -21,13 +20,16 @@ draft: true
     <section class="option">
         <h2>help lio train his cool service dog</h2>
         <p class="explainer">
-            Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Maiores, cumque quia reiciendis perferendis cum ducimus
-            eveniet. Odio et facilis veniam. Voluptate vitae sed itaque maiores
-            dolorem id sapiente nisi quia?
+            Lio is a member of our community who has a lovely service dog named
+            Muppet! (Muppy for short.) Unfortunately, as is often the case for
+            those in need of service dogs, he doesn't have the time to train
+            Muppy to her full capability, and training is expensive. Really
+            expensive. As such, we'd love it if you donated to help him pay for
+            it, so Muppy can do what she does best even better. Anything helps.
         </p>
-        <a href="/" class="big">go →</a>
-        <div class="raised"><span class="number" id="lio">${{donations.lio.display}}</span> raised</div>
+        <a href="https://ko-fi.com/liomiodio" class="big">go →</a>
+        <div class="raised"><span class="number"
+                id="lio">${{donations.lio.display}}</span> raised</div>
         <div class="get-counted" class="inverted" style="rotate: -2deg;">
             <h3>Get Counted!</h3>
             <p>
@@ -42,13 +44,16 @@ draft: true
     <section class="option inverted">
         <h2>donate to the PCRF</h2>
         <p class="explainer">
-            Lorem ipsum dolor sit amet consectetur, adipisicing
-            elit. Quod obcaecati magnam ullam quam laboriosam tempora! Quaerat
-            inventore in ullam nemo, quibusdam neque exercitationem nihil.
-            Placeat assumenda expedita fuga tenetur minima.
+            The Palestinian Children's Relief Fund provides free medical care to
+            thousands of injured and ill children currently suffering under the
+            Israeli occupation of Palestine. Donating to them shows your support of
+            their mission and allows them to continue doing what they do.
+            Anything helps. Free Palestine.
         </p>
-        <a href="https://pcrf1.app.neoncrm.com/forms/general" class="big">go →</a>
-        <div class="raised"><span class="number" id="pcrf">${{donations.pcrf.display}}</span> raised</div>
+        <a href="https://pcrf1.app.neoncrm.com/forms/general" class="big">go
+            →</a>
+        <div class="raised"><span class="number"
+                id="pcrf">${{donations.pcrf.display}}</span> raised</div>
         <div class="get-counted" style="rotate: 2.5deg;">
             <h3>Get Counted!</h3>
             <p>
@@ -60,7 +65,8 @@ draft: true
             <p>
                 <strong>important!</strong> we'll use the name that's on your
                 receipt, so make sure you set it to something you're comfortable
-                with being shown on the stream (they'll let you put whatever in).
+                with being shown on the stream (they'll let you put whatever
+                in).
             </p>
         </div>
     </section>
@@ -76,16 +82,12 @@ draft: true
                 <li>
                     <span class="price">$??</span>
                     <span>
-                        <span class="limited">buelfest only!</span>
+                        <span class="limited">during buelfest only!</span>
                         any amount will earn you a raffle ticket for the day.
                     </span>
                 </li>
                 <li>
-                    <span class="price">$5 <small>(or more)</small></span>
-                    your name gets read out at the end of the stream
-                </li>
-                <li>
-                    <span class="price">$7</span>
+                    <span class="price">$5</span>
                     bueller gets a hug and is told it's from you.
                 </li>
                 <li>
@@ -103,7 +105,7 @@ draft: true
                 <li>
                     <span class="price">$????</span>
                     <span>
-                        <span class="limited">buelfest only!</span>
+                        <span class="limited">during buelfest only!</span>
                         if you are in the top 3 donators by the end of the week,
                         you'll be eligible to receive a free item of merch by
                         your own design (or a buelfest staff shirt).
@@ -114,7 +116,7 @@ draft: true
         <div>
             <h3>raffle</h3>
             <p>here's how it works:</p>
-            <ul>
+            <ul style="display: flex; flex-direction: column; gap: .25rem; line-height: 1.5;">
                 <li>
                     the weekdays all count for one big raffle at the end of the
                     afterparty

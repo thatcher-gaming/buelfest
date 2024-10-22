@@ -2,7 +2,7 @@ require 'dotenv/load'
 require 'mail'
 require 'pg'
 
-db = PG.connect ENV["PG_URI"]
+# db = PG.connect ENV["PG_URI"]
 
 Mail.defaults do
   retriever_method :imap, 
@@ -35,7 +35,10 @@ def confirm(mail, amount, message)
   reply.deliver!
 end
 
-AmountRegex = /Amount paid\s+(?'amount'\p{Sc}\d+\.\d+)/i
+AmountRegexes = [
+  /Amount paid\s+(?'amount'\p{Sc}\d+\.\d+)/i,
+  /kind donation of (?'amount'(\$)\d+(\.\d+)? \w+)/,
+]
 
 count = 0
 
@@ -46,7 +49,7 @@ Mail.find_and_delete do |message|
     part = message.parts.find { |p| p.content_type.start_with? "text/plain" }
     part.body if part
   else
-    message.body if message.body.content_type == "text/plain"
+    message.body 
   end
 
   if body.nil?
@@ -59,7 +62,8 @@ Mail.find_and_delete do |message|
   first_line = encoded.lines[0].strip
   dono_message = first_line unless first_line.empty?
 
-  match = AmountRegex.match(encoded)
+  regex = AmountRegexes.find { |r| r.match(encoded) }
+  match = regex.match(encoded)
 
   if match['amount'].nil?
     darn(message)

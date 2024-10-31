@@ -2,7 +2,7 @@ require 'dotenv/load'
 require 'mail'
 require 'pg'
 
-# db = PG.connect ENV["PG_URI"]
+$db = PG.connect ENV["PG_URI"]
 
 Mail.defaults do
   retriever_method :imap, 
@@ -42,7 +42,7 @@ AmountRegexes = [
 
 count = 0
 
-Mail.find_and_delete do |message|
+Mail.find(what: :last, count: 100) do |message|
   count += 1
 
   body = if message.multipart?
@@ -63,6 +63,10 @@ Mail.find_and_delete do |message|
   dono_message = first_line unless first_line.empty?
 
   regex = AmountRegexes.find { |r| r.match(encoded) }
+  if (!regex)
+    darn(message)
+    next
+  end
   match = regex.match(encoded)
 
   if match['amount'].nil?
@@ -70,6 +74,7 @@ Mail.find_and_delete do |message|
     next
   end
 
+  message.
   confirm(message, match['amount'], dono_message)
 end
 
@@ -77,7 +82,15 @@ puts "replied to #{count} #{count == 1 ? "message" : "messages"} 🫡"
 
 # send a message to the person letting them know we couldn't parse their message
 def darn(message)
-  
+  puts "failed to parse message: #{message.inspect})"
+
+  reply = mail.reply do
+    body <<~MSG
+      hello!! we couldn't manage to process your message. w staff member will go and add it manually
+      "at some point".
+    MSG
+  end
+  reply.deliver!
 end
 
 # reply confirming the amount donated and message
@@ -93,7 +106,7 @@ def confirm(mail, amount, message)
 end
 
 def store_amount(mail, amount, message)
-  conn.exec_params <<~SQL, [mail.from, amount.to_s, 'pcrf', message, mail.to_s]
+  $db.exec_params <<~SQL, [mail.from, amount.to_s, 'pcrf', message, mail.to_s]
     INSERT INTO donations (name, amount, cause, message, raw)
     VALUES ($1, $2, $3, $4, $5)
   SQL

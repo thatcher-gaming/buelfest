@@ -5,7 +5,8 @@ layout: base.njk
 
 {% block head %}
 <link rel="stylesheet" href="/assets/homepage.css">
-<script src="/assets/scripts/dog.js" async type="module"></script>
+<script src="/assets/scripts/dog.js" type="module"></script>
+<script src="/assets/scripts/names.js" async type="module"></script>
 
 <meta property="og:title" content="BUELFEST" />
 <meta property="og:type" content="website" />
@@ -21,29 +22,57 @@ layout: base.njk
     <span class="big fest">fest</span>
 </h1>
 
-<section class="more inverted">
+
+<section class="names inverted">
+    <details>
+        <summary id="summary">
+            <div class="arrow-up" aria-hidden>▲</div>
+            <div class="arrow-down" aria-hidden>▼</div>
+            with
+            {% for name in lineup.summary %}
+            <div class="the">{{name}}</div>
+            {% endfor %}
+        </summary>
+        <div class="names">
+            {% for name in lineup.shuffled %}
+            <span class="name">{{name}}</span>
+            {% endfor %}
+        </div>
+    </details>
+    <script>
+        document.getElementById("summary").style.opacity = 0;
+    </script>
+
+</section>
+
+<section class="more">
     <section class="details">
         <span class="date">nov. 1–4, 6–8</span>
-        <span><a target="_blank" href="https://twitch.tv/guywith_dog">twitch.tv/guywith_dog</a></span>
+        <span><a target="_blank"
+                href="https://twitch.tv/guywith_dog">twitch.tv/guywith_dog</a></span>
         <span>the annual dog–based urlfest</span>
     </section>
 
     <section class="text">
         <p>
-            BUELFEST is an online music festival running from Nov. 1st to Nov. 8th, skipping election day (with an afterparty on the 9th),
-            benefiting the training of the service dog of a member of our community as well as the PCRF. It centers around
+            BUELFEST is an online music festival running from Nov. 1st to Nov.
+            8th, skipping election day (with an afterparty on the 9th),
+            benefiting the training of the service dog of a member of our
+            community as well as the PCRF. It centers around
             my autism service dog Bueller; it starts on his birthday and every
             set has an audio clip of him somewhere in it. Last year (the first
             time this event happened) we raised over $1000, and we hope for even
-            more this time around. 
+            more this time around.
         </p>
         <p>
-            The event will take place on the <a href="{{links.twitch}}">twitch channel</a>. For more information on how
-            you can help, join the <a href="{{links.discord}}">discord server</a>.
+            The event will take place on the <a href="{{links.twitch}}">twitch
+                channel</a>. For more information on how
+            you can help, join the <a href="{{links.discord}}">discord
+                server</a>.
         </p>
         <p>
-            Read more about what you can and should be doing to stop the Palestinian genocide <a
-                href="{{links.palestine}}">here</a>.
+            Read more about what you can and should be doing to stop the
+            Palestinian genocide <a href="{{links.palestine}}">here</a>.
         </p>
     </section>
 
@@ -51,9 +80,12 @@ layout: base.njk
         <a target="_blank" href="{{links.twitch}}">Watch Live</a>
         <a target="_blank" href="{{links.discord}}">Chat with us on Discord</a>
         <!-- <a target="_blank" href="{{links.signup.perform}}">Sign up as a performer</a> -->
-        <a target="_blank" href="{{links.signup.art}}">Sign up as a visual art person</a>
+        <a target="_blank" href="{{links.signup.art}}">Sign up as a visual art
+            person</a>
         <!-- <a target="_blank" href="{{links.signup.submit}}">Submit a set</a> -->
-        <a target="_blank" href="https://guywith.dog/buelfest%20materials.zip">Download the sample pack</a>
+        <a target="_blank"
+            href="https://guywith.dog/buelfest%20materials.zip">Download the
+            sample pack</a>
     </ul>
 </section>
 
@@ -61,18 +93,22 @@ layout: base.njk
     <h3>sponsored by</h3>
 
     <ul>
-        <a class="sponsor" style="mask-image: url('/assets/nora.png');" target="_blank" href="https://nora.jewelry/">
+        <a class="sponsor" style="mask-image: url('/assets/nora.png');"
+            target="_blank" href="https://nora.jewelry/">
             Nora Reed Designs
         </a>
 
-        <a class="sponsor" style="mask-image: url('/assets/unplugred.png'); image-rendering: pixelated;" target="_blank"
-            href="https://vst.unplug.red/">
+        <a class="sponsor"
+            style="mask-image: url('/assets/unplugred.png'); image-rendering: pixelated;"
+            target="_blank" href="https://vst.unplug.red/">
             unplug.red
         </a>
 
         <div>
             <b>you, possibly</b>
-            <span>please email <a href="mailto:sponsors@guywith.dog">sponsors@guywith.dog</a> if you're
+            <span>please email <a
+                    href="mailto:sponsors@guywith.dog">sponsors@guywith.dog</a>
+                if you're
                 interested in sponsoring!</span>
         </div>
     </ul>

@@ -2,7 +2,7 @@ const elem = document.getElementById("summary");
 
 import { animate, spring, stagger } from "https://esm.sh/motion@10.18.0";
 
-const names = await fetch("/names.json").then(x => x.json());
+const { names, links } = await fetch("/names.json").then(x => x.json());
 let shuffled = shuffle(names);
 render_summary();
 render_main();
@@ -55,7 +55,10 @@ function render_main() {
     const namezone = document.getElementById("namezone");
     namezone.innerHTML = "";
     for (const name of shuffled) {
-        namezone.innerHTML += `<span class="name">${name}</span>`
+        const link = links[name];
+        namezone.innerHTML += link 
+        ? `<span class="name"><a href="${link}" target="_blank" rel="noreferrer">${name}</a></span>` 
+        : `<span class="name">${name}</span>`
     }
 }
 

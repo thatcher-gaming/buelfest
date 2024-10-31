@@ -35,7 +35,15 @@ layout: base.njk
         </summary>
         <div class="names" id="namezone">
             {% for name in lineup.shuffled %}
-            <span class="name">{{name}}</span>
+            {% set link = lineup.links[name] %}
+            <span class="name">
+                {% if link %}
+                <a href="{{link}}" target="_blank" rel="noreferrer">{{name}}</a>
+                {% else %}
+                {{name}}
+                {% endif %}
+    
+            </span>
             {% endfor %}
         </div>
     </details>

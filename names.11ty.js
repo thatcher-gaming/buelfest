@@ -6,8 +6,8 @@ module.exports = class {
         }
     }
 
-    render({ lineup: { names } }) {
-        return JSON.stringify(names);
+    render({ lineup }) {
+        return JSON.stringify(lineup);
     }
 
 }

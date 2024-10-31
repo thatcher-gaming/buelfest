@@ -42,7 +42,7 @@ function animate_out() {
 }
 
 function render_summary() {
-    elem.innerHTML = `<div class="arrow-up" aria-hidden>▲</div>
+    elem.innerHTML = `<div class="arrow-up" aria-hidden>▶</div>
 <div class="arrow-down" aria-hidden>▼</div>
 with`;
     const names = shuffled.slice(0, 15);

@@ -223,7 +223,8 @@ const links = {
     "Whitefish": "",
     "algo": "https://on.soundcloud.com/g9ZRu",
     "C-SIDE": "https://patheticgirl.bandcamp.com",
-    "thed&benno": "https://soundcloud.com/thedbenno"
+    "thed&benno": "https://soundcloud.com/thedbenno",
+    "guy with dog": "https://guywith.dog"
 };
 
 module.exports = {

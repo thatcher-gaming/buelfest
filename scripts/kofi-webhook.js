@@ -133,76 +133,76 @@ app.get('/api/donations', async (req, res) => {
     }
 });
 
-// API endpoint to get all donations (for TouchDesigner)
-app.get('/api/donations/all', async (req, res) => {
-    try {
-        const result = await pool.query(
-            `SELECT 
-        id, 
-        name, 
-        amount::text::money as amount, 
-        done, 
-        message, 
-        created 
-       FROM donationzone.donation 
-       WHERE cause = 'lio'
-       ORDER BY created DESC`
-        );
+// // API endpoint to get all donations (for TouchDesigner)
+// app.get('/api/donations/all', async (req, res) => {
+//     try {
+//         const result = await pool.query(
+//             `SELECT 
+//         id, 
+//         name, 
+//         amount::text::money as amount, 
+//         done, 
+//         message, 
+//         created 
+//        FROM donationzone.donation 
+//        WHERE cause = 'lio'
+//        ORDER BY created DESC`
+//         );
 
-        res.json(result.rows);
-    } catch (error) {
-        console.error('Error fetching all donations:', error);
-        res.status(500).json({ error: 'Failed to read donations' });
-    }
-});
+//         res.json(result.rows);
+//     } catch (error) {
+//         console.error('Error fetching all donations:', error);
+//         res.status(500).json({ error: 'Failed to read donations' });
+//     }
+// });
 
-// API endpoint to mark donation as done
-app.patch('/api/donations/:id/done', async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { done } = req.body;
+// // API endpoint to mark donation as done
+// app.patch('/api/donations/:id/done', async (req, res) => {
+//     try {
+//         const { id } = req.params;
+//         const { done } = req.body;
 
-        const result = await pool.query(
-            `UPDATE donationzone.donation 
-       SET done = $1 
-       WHERE id = $2 AND cause = 'lio'
-       RETURNING id, name, done`,
-            [done === true || done === 'true', id]
-        );
+//         const result = await pool.query(
+//             `UPDATE donationzone.donation 
+//        SET done = $1 
+//        WHERE id = $2 AND cause = 'lio'
+//        RETURNING id, name, done`,
+//             [done === true || done === 'true', id]
+//         );
 
-        if (result.rowCount === 0) {
-            return res.status(404).json({ error: 'Donation not found' });
-        }
+//         if (result.rowCount === 0) {
+//             return res.status(404).json({ error: 'Donation not found' });
+//         }
 
-        res.json(result.rows[0]);
-    } catch (error) {
-        console.error('Error updating donation:', error);
-        res.status(500).json({ error: 'Failed to update donation' });
-    }
-});
+//         res.json(result.rows[0]);
+//     } catch (error) {
+//         console.error('Error updating donation:', error);
+//         res.status(500).json({ error: 'Failed to update donation' });
+//     }
+// });
 
-// API endpoint to get undone donations
-app.get('/api/donations/pending', async (req, res) => {
-    try {
-        const result = await pool.query(
-            `SELECT 
-        id, 
-        name, 
-        amount::text::money as amount, 
-        done, 
-        message, 
-        created 
-       FROM donationzone.donation 
-       WHERE cause = 'lio' AND done = false
-       ORDER BY created DESC`
-        );
+// // API endpoint to get undone donations
+// app.get('/api/donations/pending', async (req, res) => {
+//     try {
+//         const result = await pool.query(
+//             `SELECT 
+//         id, 
+//         name, 
+//         amount::text::money as amount, 
+//         done, 
+//         message, 
+//         created 
+//        FROM donationzone.donation 
+//        WHERE cause = 'lio' AND done = false
+//        ORDER BY created DESC`
+//         );
 
-        res.json(result.rows);
-    } catch (error) {
-        console.error('Error fetching pending donations:', error);
-        res.status(500).json({ error: 'Failed to read donations' });
-    }
-});
+//         res.json(result.rows);
+//     } catch (error) {
+//         console.error('Error fetching pending donations:', error);
+//         res.status(500).json({ error: 'Failed to read donations' });
+//     }
+// });
 
 // Health check endpoint
 app.get('/health', (req, res) => {

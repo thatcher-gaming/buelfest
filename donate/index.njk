@@ -134,7 +134,7 @@ title: "donations"
 
 <script type="module">
     const kofi_url = window.location.hostname === 'localhost'
-        ? "/_data/kofi-donations.json"
+        ? "http://localhost:3000/api/donations"
         : "https://buelfest.onrender.com/api/donations";
 
     async function updateKofi() {
@@ -145,10 +145,8 @@ title: "donations"
             const json = await res.json();
 
             const elem = document.getElementById('lio');
-            if (elem && json.total !== undefined) {
-                elem.innerText = "$" + json
-                    .total
-                    .toFixed(0);
+            if (elem && json.lio && json.lio.total !== undefined) {
+                elem.innerText = "$" + json.lio.total.toFixed(0);
             }
         } catch (error) {
             console.error('Failed to update Ko-fi donations:', error);

@@ -1,6 +1,6 @@
 main {
     display: grid;
-    grid-template-rows: 0 1fr 0 1fr auto;
+    grid-template-rows: 0 1fr auto;
     grid-auto-rows: max-content;
     max-width: unset;
     width: unset;

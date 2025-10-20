@@ -2,6 +2,8 @@
     --dog-height: 60svh;
 }
 
+
+
 h1.nice {
     display: grid;
     position: relative;
@@ -18,7 +20,38 @@ h1.nice {
     /* todo: check accessibility */
     user-select: none;
 
-    font-variation-settings: 'FLAR' 100, 'VOLM' 100;
+    font-variation-settings: 'FLAR'100, 'VOLM'100;
+
+    a.big {
+        grid-column: 1;
+        font-size: max(2rem, 6vmin);
+        padding: .2em .5em;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin: 0;
+        font-weight: 500;
+        border: 2px solid currentColor;
+        border-bottom-width: 8px;
+        width: max-content;
+        line-height: 1;
+        justify-self: end;
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+
+        &:hover {
+            background-color: color-mix(in srgb, currentColor, var(--bg) 80%);
+        }
+
+        .inverted &:hover {
+            background-color: color-mix(in srgb, currentColor, var(--fg) 80%);
+        }
+    }
+
+
 
     span.big {
         font-size: min(22vw, 40vh);
@@ -239,7 +272,7 @@ section.names {
         line-height: 1;
         font-weight: 200;
         text-transform: uppercase;
-        font-variation-settings: 'FLAR' 100, 'VOLM' 100;
+        font-variation-settings: 'FLAR'100, 'VOLM'100;
     }
 
     .names {

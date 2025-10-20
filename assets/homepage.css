@@ -22,29 +22,36 @@ h1.nice {
 
     font-variation-settings: 'FLAR'100, 'VOLM'100;
 
-    button.donate {
+    a.big {
+        grid-column: 1;
+        font-size: max(2rem, 6vmin);
+        padding: .2em .5em;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin: 0;
+        font-weight: 500;
+        border: 2px solid currentColor;
+        border-bottom-width: 8px;
+        width: max-content;
+        line-height: 1;
+        justify-self: end;
         position: absolute;
-        width: 30%;
-        height: 50%;
-        border-radius: 10px;
-        ;
+        z-index: 10;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
-        .butt {
-            font-size: clamp(2rem, 8vw, 6rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.025em;
-            line-height: 1;
-            border: none;
-            background-color: var(--fg);
-            color: var(--bg);
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-            user-select: none;
-            z-index: 5;
+
+        &:hover {
+            background-color: color-mix(in srgb, currentColor, var(--bg) 80%);
+        }
+
+        .inverted &:hover {
+            background-color: color-mix(in srgb, currentColor, var(--fg) 80%);
         }
     }
+
+
 
     span.big {
         font-size: min(22vw, 40vh);

@@ -11,11 +11,14 @@
     color: var(--bg);
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
 
@@ -116,7 +119,7 @@ h1.big {
     text-transform: uppercase;
     letter-spacing: -0.025em;
     text-wrap: balance;
-    font-variation-settings: 'FLAR' 100, 'VOLM' 100;
+    font-variation-settings: 'FLAR'100, 'VOLM'100;
     line-height: .8;
 
     grid-column: 1;
@@ -134,6 +137,8 @@ h1.big {
 .inverted {
     background-color: var(--fg);
     color: var(--bg);
+    padding-left: 15px;
+    padding-right: 15px;
 
     ::selection {
         background-color: var(--bg);
@@ -166,7 +171,7 @@ footer {
         display: flex;
         flex-direction: column;
         text-transform: uppercase;
-        font-variation-settings: 'FLAR' 100, 'VOLM' 100;
+        font-variation-settings: 'FLAR'100, 'VOLM'100;
         font-size: 1.25rem;
 
         :nth-child(1) {

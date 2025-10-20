@@ -1,12 +1,12 @@
 main {
     display: grid;
-    grid-template-rows: 0 1fr 0 1fr auto;
+    grid-template-rows: 0 1fr auto;
     grid-auto-rows: max-content;
     max-width: unset;
     width: unset;
     padding: 0;
     min-height: 100vh;
-    
+
     --inner-margin: clamp(.5rem, 2vw, 2rem);
 }
 
@@ -17,7 +17,7 @@ h1.big {
     text-transform: uppercase;
     letter-spacing: -0.025em;
     word-break: break-all;
-    font-variation-settings: 'FLAR' 100, 'VOLM' 100;
+    font-variation-settings: 'FLAR'100, 'VOLM'100;
     line-height: .8;
     height: min-content;
 
@@ -44,7 +44,7 @@ h2.big {
     line-height: 1;
     text-transform: uppercase;
     font-weight: 900;
-    font-variation-settings: 'FLAR' 100, 'VOLM' 100;
+    font-variation-settings: 'FLAR'100, 'VOLM'100;
 
     z-index: 0;
     user-select: none;
@@ -56,7 +56,7 @@ h2.big {
     display: flex;
     align-items: center;
     gap: 1rem;
-    
+
     background-color: var(--fg);
     color: var(--bg);
     justify-content: center;
@@ -68,7 +68,7 @@ h2.big {
     margin-top: -1rem;
     border: 1px solid var(--bg);
     user-select: none;
-    
+
     z-index: 100;
 
 }
@@ -89,7 +89,7 @@ section.option {
         margin-bottom: .25rem;
         font-size: 2.5rem;
         font-weight: 900;
-        font-variation-settings: 'FLAR' 100;
+        font-variation-settings: 'FLAR'100;
         grid-column: 1 / span 2;
         text-wrap: balance;
     }
@@ -111,9 +111,10 @@ section.option {
         grid-column: 3 / -1;
         grid-row: 2 / span 2;
         align-self: last baseline;
+
         .number {
-            font-variation-settings: 'FLAR' 100;
-            font-size: max(2rem, 17.5vw);
+            font-variation-settings: 'FLAR'100;
+            font-size: max(2rem, 15.5vw);
             font-weight: 900;
             font-variant-numeric: tabular-nums;
         }
@@ -145,7 +146,7 @@ section.option {
     .get-counted {
         grid-column: 2;
         grid-row: 3;
-        align-self: start   ;
+        align-self: start;
         justify-self: start;
 
         max-width: 22rem;
@@ -193,7 +194,7 @@ section.option {
             grid-row: 5;
             margin-bottom: 2rem;
         }
-        
+
         p.explainer {
             margin: 0;
         }
@@ -217,7 +218,7 @@ section.option {
     h4 {
         margin-bottom: 0;
 
-        + p {
+        +p {
             margin-top: .25rem;
         }
     }
@@ -259,13 +260,13 @@ ol.table {
             min-width: max-content;
             justify-self: end;
             font-weight: 700;
-            font-variation-settings: 'FLAR' 100, 'VOLM' 100;
+            font-variation-settings: 'FLAR'100, 'VOLM'100;
             font-size: 1.25rem;
 
             small {
                 font-size: .9rem;
                 font-weight: 500;
-                font-variation-settings: 'slnt' -10;
+                font-variation-settings: 'slnt'-10;
             }
         }
     }

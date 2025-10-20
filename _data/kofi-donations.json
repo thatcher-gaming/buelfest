@@ -1,0 +1,27 @@
+{
+  "donations": [
+    {
+      "kofi_transaction_id": "test-789",
+      "name": "Test Donor",
+      "amount": 15.5,
+      "message": "Good luck!",
+      "email": "donor@test.com",
+      "timestamp": "2025-10-19T12:00:00Z",
+      "is_public": true,
+      "currency": "USD"
+    },
+    {
+      "kofi_transaction_id": "test-999",
+      "name": "Jane Smith",
+      "amount": 25,
+      "message": "Love what you do!",
+      "email": "jane@example.com",
+      "timestamp": "2025-10-19T13:00:00Z",
+      "is_public": true,
+      "currency": "USD"
+    }
+  ],
+  "total": 40.5,
+  "count": 2,
+  "lastUpdated": "2025-10-20T00:45:45.170Z"
+}

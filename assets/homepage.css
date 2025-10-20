@@ -40,15 +40,20 @@ h1.nice {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        background-color: var(--bg);
+        color: var(--fg);
 
 
         &:hover {
-            background-color: color-mix(in srgb, currentColor, var(--bg) 80%);
+            color: var(--bg);
+            background-color: var(--fg);
         }
 
         .inverted &:hover {
             background-color: color-mix(in srgb, currentColor, var(--fg) 80%);
         }
+
+
     }
 
 

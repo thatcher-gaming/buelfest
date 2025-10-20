@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: buelfest-webhook
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: KOFI_WEBHOOK_PORT
+        value: 10000
+      - key: PG_URI
+        sync: false  # This means you'll set it manually in Render dashboard

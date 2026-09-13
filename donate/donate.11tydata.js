@@ -1,6 +1,6 @@
 const eleventyFetch = require("@11ty/eleventy-fetch");
 
-const cool_url = "https://guywith.dog/donations.php";
+const cool_url = "https://guywith.dog/donationText.php";
 
 module.exports = {
     eleventyComputed: {

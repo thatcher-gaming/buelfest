@@ -6,7 +6,7 @@ module.exports = {
     eleventyComputed: {
         donations: async () => {
             const res = await eleventyFetch(cool_url, {
-                duration: "5m",
+                duration: "1m",
                 type: "json",
             });
     
